@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.top_nav {
+  position: fixed;
+  top: 0;
+  display: gird;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-areas: "leftNav middleNav rightNav";
+  height: 4rem;
+  padding: 1rem;
+  border-bottom: 1px solid grey;
+}
+.top_nav #leftNav {
+  display: flex;
+  align-items: center;
+  grid-area: leftNav;
+  background-color: red;
+}
+.top_nav #leftNav #menuIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 3rem;
+}
+.top_nav #leftNav #googleKeep img {
+  display: flex;
+  height: 2.5rem;
+  width: 3rem;
+  object-fit: contain;
+}
+.top_nav #leftNav #keepText {
+  padding: 0 0.5rem;
+  font-size: 1.4rem;
+}
+.top_nav #middleNav {
+  grid-area: middleNav;
+  height: 3rem;
+  background-color: green;
+}
+.top_nav #rightNav {
+  grid-area: rightNav;
+  height: 3rem;
+  background-color: orange;
+}
