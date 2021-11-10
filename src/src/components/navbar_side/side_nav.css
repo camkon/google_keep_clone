@@ -1,0 +1,21 @@
+#sideNavContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70vh;
+  width: 5rem;
+  margin-top: 0.3rem;
+}
+#sideNavContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+#sideNavContainer div:hover {
+  background-color: #f3f3f3;
+}

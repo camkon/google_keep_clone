@@ -1,0 +1,30 @@
+$backHover: rgb(243, 243, 243);
+
+#sideNavContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 70vh;
+  width: 5rem;
+
+  margin-top: 0.3rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 3rem;
+    width: 3rem;
+
+    border-radius: 50%;
+    background-color: white;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: $backHover;
+    }
+  }
+}
