@@ -3,6 +3,13 @@ body {
   padding: 0;
 }
 
+@font-face {
+  font-family: roboto;
+  src: url('./components/fonts/RobotoCondensed_400Regular.ttf');
+}
+
 * {
   box-sizing: border-box;
+  font-family: roboto;
 }
+
