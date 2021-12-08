@@ -1,6 +1,8 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import './nav_structure.css'
+import react from 'react';
+import reactDom from 'react-dom';
+import './nav_structure.css';
+
+//top nav bar 
 
 //images used in the top nav bar
 import menuIcon from './../../images/iconsBlack/menu.svg';
@@ -13,15 +15,23 @@ import googleAppsIcon from './../../images/iconsBlack/apps.svg';
 import AccountIcon from './../../images/iconsBlack/account.svg';
 
 
-//style transition when search bar is clicked
-function searchbar() {
-  var searchbox = document.getElementById('searchBar').style;
-  searchbox.backgroundColor == 'rgb(243, 243, 243)' ? searchbox.backgroundColor = 'white' : searchbox.backgroundColor = 'rgb(243, 243, 243)';
-  searchbox.boxShadow == 'none' ? searchbox.boxShadow = '0.01rem 0.05rem 0.1rem 0 rgb(200, 200, 200)' : searchbox.boxShadow = 'none';
-}
+
+class Nav_structure extends reactDom.Component {
+
+  constructor(props) {
+    super()
+    this.state = {
+      searchBar: 'clicked',
+    }
+  }
+
+  searchBarChange = () => {
+    this.setState({
+      searchBar: 'unClicked',
+    })
+  }
 
 
-class Nav_structure extends React.Component {
 
   render() {
     return(
@@ -34,7 +44,7 @@ class Nav_structure extends React.Component {
         </div>
         
         <div className="top_nav_grids" id="middleNav">
-          <div id="searchBar" onClick={searchbar}>
+          <div id="searchBar" className={this.state.searchBar} onClick={this.searchBarChange}>
             <div id="searchIcon"><img src={searchIcon}/></div>
             <input id="searchText" type="text" placeHolder="Search"/>
           </div>

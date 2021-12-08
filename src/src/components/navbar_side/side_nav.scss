@@ -10,16 +10,16 @@ $backHover: rgb(243, 243, 243);
 
   margin-top: 0.3rem;
 
-  div {
+  .sideIcons {
     display: flex;
     justify-content: center;
     align-items: center;
 
+    position: relative;
     height: 3rem;
     width: 3rem;
 
     border-radius: 50%;
-    background-color: white;
 
     cursor: pointer;
 
@@ -28,3 +28,21 @@ $backHover: rgb(243, 243, 243);
     }
   }
 }
+
+.sideText {
+  position: absolute;
+  left: 4rem;
+  width: 10rem;
+  padding: 0.7rem 0;
+  // padding: 0.7rem 5rem 0.7rem 0.5rem;
+
+  background-color: red;
+
+  font-size: 1.12rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+
+  &:hover {
+    background-color: $backHover;
+  }
+}
+

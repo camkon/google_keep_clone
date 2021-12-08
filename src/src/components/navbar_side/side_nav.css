@@ -6,16 +6,29 @@
   width: 5rem;
   margin-top: 0.3rem;
 }
-#sideNavContainer div {
+#sideNavContainer .sideIcons {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  background-color: white;
   cursor: pointer;
 }
-#sideNavContainer div:hover {
+#sideNavContainer .sideIcons:hover {
+  background-color: #f3f3f3;
+}
+
+.sideText {
+  position: absolute;
+  left: 4rem;
+  width: 10rem;
+  padding: 0.7rem 0;
+  background-color: red;
+  font-size: 1.12rem;
+  border-radius: 0 1.5rem 1.5rem 0;
+}
+.sideText:hover {
   background-color: #f3f3f3;
 }
