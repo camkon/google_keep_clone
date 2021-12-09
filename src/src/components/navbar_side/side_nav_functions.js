@@ -1,17 +1,28 @@
 import react from 'react';
 import reactDom from 'react-dom';
-import './side_nav.css'
+import './side_nav.css';
 
-function SideText() {
-  return(
-    <div className="sideText">
-      <div>Notes</div>
-      <div>Reminder</div>
-      <div>Edit</div>
-      <div>Archive</div>
-      <div>Trash</div>
-    </div>
-  );
+
+class SideText extends react.Component {
+
+  constructor(props) {
+    super()
+    this.state = {
+      animeClass: 'sideText display',
+    }    
+  }
+
+  render() {
+    return(
+      <div className={this.state.animeClass}>
+        <div className='sText'>Notes</div>
+        <div className='sText'>Reminder</div>
+        <div className='sText'>Edit</div>
+        <div className='sText'>Archive</div>
+        <div className='sText'>Trash</div>
+      </div>
+    )
+  }
 }
 
 

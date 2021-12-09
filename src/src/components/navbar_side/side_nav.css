@@ -1,34 +1,79 @@
-#sideNavContainer {
+.sideNavContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  height: 31vh;
   width: 5rem;
   margin-top: 0.3rem;
 }
-#sideNavContainer .sideIcons {
+.sideNavContainer .sideIcons {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
   cursor: pointer;
+  animation-name: sideIcon;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
 }
-#sideNavContainer .sideIcons:hover {
-  background-color: #f3f3f3;
+.sideNavContainer .sideIcons:hover {
+  background-color: red;
+}
+@keyframes sideIcon {
+  100% {
+    width: 5rem;
+    border-radius: 0%;
+  }
 }
 
 .sideText {
+  display: flex;
+  align-items: center;
   position: absolute;
-  left: 4rem;
-  width: 10rem;
-  padding: 0.7rem 0;
-  background-color: red;
-  font-size: 1.12rem;
-  border-radius: 0 1.5rem 1.5rem 0;
+  left: 5rem;
+  height: 3rem;
+  width: 6rem;
+  padding-left: 1rem;
+  font-size: 1rem;
+  border-radius: 0 5rem 5rem 0;
+  background-color: antiquewhite;
 }
 .sideText:hover {
-  background-color: #f3f3f3;
+  background-color: red;
+}
+
+.show {
+  display: flex;
+  left: 5rem;
+  animation-name: show;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes show {
+  0% {
+    width: 6rem;
+  }
+  100% {
+    width: 12rem;
+  }
+}
+.hide {
+  animation-name: hide;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+
+@keyframes hide {
+  0% {
+    width: 12rem;
+  }
+  100% {
+    left: 5rem;
+    opacity: 0;
+  }
 }
