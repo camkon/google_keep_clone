@@ -1,6 +1,5 @@
 import react from 'react';
 import reactDom from 'react-dom';
-import './nav_structure.css';
 
 //top nav bar 
 
@@ -16,7 +15,7 @@ import AccountIcon from './../../images/iconsBlack/account.svg';
 
 
 
-class Nav_structure extends reactDom.Component {
+class Nav_structure extends react.Component {
 
   constructor(props) {
     super()
