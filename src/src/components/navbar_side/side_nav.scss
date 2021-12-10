@@ -1,14 +1,25 @@
 $backHover: rgb(243, 243, 243);
 
+
 .sideNavContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  height: 31vh;
+  height: 44.2rem;
   width: 5rem;
 
   margin-top: 0.3rem;
+
+  .con {
+    position: absolute;
+    left: 0;
+    // height: 44.2rem;
+    height: 45rem;
+    width: 5rem;
+
+    z-index: -1;
+  }
 
   .sideIcons {
     display: flex;
@@ -18,39 +29,55 @@ $backHover: rgb(243, 243, 243);
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
+    background-color: white;
     cursor: pointer;
+    z-index: 2;
+  } 
+}
 
+//stretch animation
+#stretch {
+  //start styling this shit
+  .sideIcons {
     animation-name: sideIcon;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: both;
-    animation-delay: 0.5s;
+    animation-delay: 0.6s;
 
     &:hover {
-      background-color: red;
+      background-color: antiquewhite;
     }
-  } 
+  }
+
   @keyframes sideIcon {
     100% {
       width: 5rem;
       border-radius: 0%;
     }
   }
-}
 
-//stretch animation
-#stretch {
-  //start styling this shit
+  .con {
+    animation-name: con;
+    animation-duration: 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+  }
+  @keyframes con {
+    100% {
+      width: 17rem;
+      // border-right: 2px solid grey;
+      box-shadow: 0 16px 16px 0;
+      opacity: 0.5;
+    }
+  }
+
 }
 
 //unstretch animation
-#shrink {
+// #shrink {
 
-}
-
-//make this stretch animation
-//
-
-
+// }
+// 
 
 
 
@@ -68,31 +95,40 @@ $backHover: rgb(243, 243, 243);
   font-size: 1rem;
 
   border-radius: 0 5rem 5rem 0;
-  background-color: antiquewhite;
+  opacity: 0;
+
+  z-index: 1;
 
   &:hover {
-    background-color: red;
+    background-color: antiquewhite;
   }
 }
 
 .show {
   display: flex;
   left: 5rem;
+  opacity: 0;
 
   animation-name: show;
   animation-duration: 0.5s;
-  animation-delay: 0.5s;
+  animation-delay: 0.6s;
   animation-fill-mode: both;
 }
-@keyframes show {
-  0% {width: 6rem;}
-  100% {width: 12rem}
-}
-
 .hide {
   animation-name: hide;
   animation-duration: 0.4s;
   animation-fill-mode: both;
+}
+.nodisp {
+  display: none;
+}
+
+@keyframes show {
+  0% {width: 6rem;}
+  100% {
+    width: 12rem;
+    opacity: 1;
+  }
 }
 @keyframes hide {
   0% {width: 12rem;}

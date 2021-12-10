@@ -19,7 +19,7 @@ class SideNavBar extends react.Component {
     super()
     this.state = {
       sideNavState: 'shrink',
-      animeClass: 'sideText hide',
+      animeClass: 'sideText hide nodisp',
     }
   }
 
@@ -27,18 +27,23 @@ class SideNavBar extends react.Component {
   //setState is used to change the state of the class name.
   enters = () => {
     let x = this.state.sideNavState == 'shrink' ? 'stretch' : 'shrink';
-    let y = this.state.animeClass == 'sideText hide' ? 'sideText show' : 'sideText hide';
+    let y = this.state.animeClass == 'sideText hide nodisp' ? 'sideText show' : 'sideText hide';
 
     this.setState({
       sideNavState: x,
       animeClass: y,
     })
+  }
 
-    console.log(document.querySelector('sideText'));
+  noDisplayLabel = () => {
+    let y = this.state.animeClass == 'sideText show' ? 'sideText hide nodisp' : 'sideText show';
+    this.setState({
+      animeClass: y
+    })
   }
   exits = () => {
     let x = this.state.sideNavState == 'stretch' ? 'shrink' : 'stretch';
-    let y = this.state.animeClass == 'sideText show' ? 'sideText hide' : 'sideText show';
+    let y = this.state.animeClass == 'sideText show' ? 'sideText hide nodisp' : 'sideText show';
     this.setState({
       sideNavState: x,
       animeClass: y,
@@ -50,7 +55,7 @@ class SideNavBar extends react.Component {
     return(
       <div>
         <div className="sideNavContainer" id={this.state.sideNavState} onMouseEnter={this.enters} onMouseLeave={this.exits}>
-          {/* <SideText /> */}
+          <div className="con"></div>
           <div className="sideIcons" id="bulbIcon">
             <img src={bulbIcon}/>
             <div className={this.state.animeClass}>Notes</div>
@@ -75,7 +80,6 @@ class SideNavBar extends react.Component {
             <img src={deleteIcon}/>
             <div className={this.state.animeClass}>Trash</div>
           </div>      
-        
         </div>
       </div>
     )
@@ -83,6 +87,3 @@ class SideNavBar extends react.Component {
 }
 
 export default SideNavBar;
-
-
-
