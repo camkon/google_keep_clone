@@ -1,0 +1,122 @@
+@mixin flexBox {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//variables
+$backHover: rgb(243, 243, 243);
+
+
+
+//top nav
+.top_nav {
+  display: flex;
+  align-items: center;
+
+  height: 4rem;
+  width: 100vw;
+  padding: 0 0.5rem;
+
+  border-bottom: 1px solid $backHover;
+
+  #leftNav {
+    display: flex;
+    align-items: center;
+
+    height: 4rem;
+    width: 20vw;
+
+    #menuIcon {
+      @include flexBox();
+      height: 3rem; width: 3rem;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      &:hover {
+        background-color: $backHover;
+      }
+    }
+  
+    #googleKeep {
+      display: flex;
+      justify-content: center;
+      height: 2.5rem;
+      width: 4rem;
+      object-fit: contain;
+    }
+
+    #keepText {
+      font-size: 1.4rem;
+    }
+  }
+
+  #middleNav {
+    display: flex;
+    align-items: center;
+    height: 4rem; width: 60vw;
+
+    #searchBar {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      width: 100%;
+      padding: 0 0.5rem;
+      background-color: $backHover;
+      border-radius: 0.5rem;
+      box-shadow: none;
+
+      #searchIcon {
+        @include flexBox();
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+
+        &:hover {
+          background-color: rgb(220, 220, 220);
+        }
+      }
+
+      #searchText {
+        height: 2rem;
+        width: 90%;
+        margin: 0 0.5rem;
+        background-color: transparent;
+        border: none;
+        outline-style: none;
+        
+      }
+    }
+  }
+
+  #rightNav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 4rem; width: 45vw;
+
+    div {
+      @include flexBox();
+      height: 3rem; width: 3rem;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: $backHover;
+      }
+    }
+
+    #refreshIcon,#gridIcon {
+      margin: 0 0.5rem;
+    }
+
+    #settingsIcon {
+      margin: 0 2rem 0 0.5rem;
+    }
+
+    #googleAppsIcon,#AccountIcon {
+      height: 2.5rem;
+      width: 2.5rem;
+      margin: 0 0.5rem;
+    }
+
+  }
+}

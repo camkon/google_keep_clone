@@ -1,5 +1,7 @@
 import react from 'react';
 import reactDom from 'react-dom';
+
+//style imports
 import './side_nav.css';
 import SideText from './side_nav_functions';
 
