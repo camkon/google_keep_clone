@@ -1,12 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .top_nav {
   display: flex;
   align-items: center;
@@ -32,6 +23,7 @@ body {
 }
 .top_nav #leftNav #menuIcon:hover {
   background-color: #f3f3f3;
+  cursor: pointer;
 }
 .top_nav #leftNav #googleKeep {
   display: flex;
@@ -69,6 +61,7 @@ body {
 }
 .top_nav #middleNav #searchBar #searchIcon:hover {
   background-color: gainsboro;
+  cursor: pointer;
 }
 .top_nav #middleNav #searchBar #searchText {
   height: 2rem;

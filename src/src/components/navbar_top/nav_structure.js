@@ -30,37 +30,61 @@ class Nav_structure extends react.Component {
   constructor(props) {
     super()
     this.state = {
-      sideNavState: 'shrink',
-      animeClass: 'sideText hide nodisp',
+      sideNavState: 'side-nav-shrink',
+      animeClass: 'side-icon-label labels-hide nodisp',
+      sideIconState: 'icon-back-box',
     }
   }
 
+  //when clicked on menubutton on top-nav-bar, it checks for style class's state and change accordingly 
+  stateCheck = () => {
+    let x = this.state.sideNavState == 'side-nav-stretch' ? 'side-nav-shrink' : 'side-nav-stretch';
+    let y = this.state.animeClass == 'side-icon-label labels-show' ? 'side-icon-label labels-hide nodisp' : 'side-icon-label labels-show';
+    let z = this.state.sideIconState == 'icon-back-round' ? 'icon-back-box' : 'icon-back-round';
+    this.setState({
+      sideNavState: x,
+      animeClass: y,
+      sideIconState: z,
+    })
+  }
+
+  //function to change the style class to STRETCH side nav when pointer exits the perimeter
   //when mouse enters the container, class is changed.
   //setState is used to change the state of the class name.
-  enters = () => {
-    let x = this.state.sideNavState == 'shrink' ? 'stretch' : 'shrink';
-    let y = this.state.animeClass == 'sideText hide nodisp' ? 'sideText show' : 'sideText hide';
-
+  enters = (event) => {
     this.setState({
-      sideNavState: x,
-      animeClass: y,
+      sideNavState: 'side-nav-stretch',
+      animeClass: 'side-icon-label labels-show',
+      sideIconState: 'icon-back-box',
     })
+    console.log(document.querySelector('.side-icons').getAttribute('id'));
   }
 
+  //changes the display of side-nav-labels to NONE with a time gap after exiting
   noDisplayLabel = () => {
-    let y = this.state.animeClass == 'sideText show' ? 'sideText hide nodisp' : 'sideText show';
     this.setState({
-      animeClass: y
+      animeClass: 'side-icon-label labels-hide nodisp',
     })
   }
+
+  //function to change the style class to SHRINK side nav when pointer exits the perimeter
   exits = () => {
-    let x = this.state.sideNavState == 'stretch' ? 'shrink' : 'stretch';
-    let y = this.state.animeClass == 'sideText show' ? 'sideText hide nodisp' : 'sideText show';
     this.setState({
-      sideNavState: x,
-      animeClass: y,
+      sideNavState: 'side-nav-shrink',
+      animeClass: 'side-icon-label labels-hide',
+      sideIconState: 'icon-back-round',
     })
+    setTimeout(() => this.noDisplayLabel(), 300);
   }
+
+
+
+
+
+
+
+
+
 
 
   render() {
@@ -69,7 +93,9 @@ class Nav_structure extends react.Component {
         <div className="top_nav">
 
           <div className="top_nav_grids" id="leftNav">
-            <div id="menuIcon"><img src={menuIcon}/></div>
+            <div id="menuIcon"
+              onClick={this.stateCheck}
+            ><img src={menuIcon}/></div>
             <div id="googleKeep"><img src={googleKeep}/></div>
             <div id="keepText"><p>Keep</p></div>
           </div>
@@ -93,34 +119,35 @@ class Nav_structure extends react.Component {
 
         {/* //side nav bar components */}
         <div 
-          className="sideNavContainer" 
+          className="side-nav-container" 
           id={this.state.sideNavState} 
           onMouseEnter={this.enters} 
           onMouseLeave={this.exits}>
 
-          <div className="con"></div>
+          <div className="plain-div-behind-side-nav"></div>
 
-          <div className="sideIcons" id="bulbIcon">
+
+          <div className='side-icons' data-iconAnime={this.state.sideIconState} id data-name="bulbIcon">
             <img src={bulbIcon}/>
             <div className={this.state.animeClass}>Notes</div>
           </div>
 
-          <div className="sideIcons" id="reminderIcon">
+          <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="reminderIcon">
             <img src={reminderIcon}/>
             <div className={this.state.animeClass}>Reminder</div>
           </div>
           
-          <div className="sideIcons" id="brushIcon">
+          <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="brushIcon">
             <img src={brushIcon}/>
             <div className={this.state.animeClass}>Edit</div>
           </div>
           
-          <div className="sideIcons" id="archiveIcon">
+          <div className='side-icons' data-iconAnime={this.state.sideIconState}data-name="archiveIcon">
             <img src={archiveIcon}/>
             <div className={this.state.animeClass}>Archive</div>
           </div>
           
-          <div className="sideIcons" id="deleteIcon">
+          <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="deleteIcon">
             <img src={deleteIcon}/>
             <div className={this.state.animeClass}>Trash</div>
           </div>      

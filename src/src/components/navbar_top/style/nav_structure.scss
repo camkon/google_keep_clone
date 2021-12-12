@@ -34,6 +34,7 @@ $backHover: rgb(243, 243, 243);
       border-radius: 50%;
       &:hover {
         background-color: $backHover;
+        cursor: pointer;
       }
     }
   
@@ -73,6 +74,7 @@ $backHover: rgb(243, 243, 243);
 
         &:hover {
           background-color: rgb(220, 220, 220);
+          cursor: pointer;
         }
       }
 
