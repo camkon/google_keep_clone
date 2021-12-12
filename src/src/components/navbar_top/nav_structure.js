@@ -51,34 +51,41 @@ class Nav_structure extends react.Component {
   //function to change the style class to STRETCH side nav when pointer exits the perimeter
   //when mouse enters the container, class is changed.
   //setState is used to change the state of the class name.
-  enters = (event) => {
+  enterSideNav = (event) => {
     this.setState({
       sideNavState: 'side-nav-stretch',
       animeClass: 'side-icon-label labels-show',
       sideIconState: 'icon-back-box',
     })
-    console.log(document.querySelector('.side-icons').getAttribute('id'));
   }
 
   //changes the display of side-nav-labels to NONE with a time gap after exiting
-  noDisplayLabel = () => {
+  labelNoDisplay = () => {
     this.setState({
       animeClass: 'side-icon-label labels-hide nodisp',
     })
   }
 
   //function to change the style class to SHRINK side nav when pointer exits the perimeter
-  exits = () => {
+  exitSideNav = (event) => {
     this.setState({
       sideNavState: 'side-nav-shrink',
       animeClass: 'side-icon-label labels-hide',
       sideIconState: 'icon-back-round',
     })
-    setTimeout(() => this.noDisplayLabel(), 300);
+    setTimeout(() => this.labelNoDisplay(), 300);
   }
 
 
-
+  iconSelect = (e) => {
+    if(e.target.getAttribute('class') == 'side-icons') {
+      let a = e.target.getAttribute('data-name');
+      let b = document.querySelector(`[data-name=${a}]`)
+      console.log(b.children[1]);
+      b.style.backgroundColor = 'rgb(255, 197, 122)'
+      b.children[1].style.backgroundColor = 'rgb(255, 197, 122)'
+    }
+  }
 
 
 
@@ -121,34 +128,36 @@ class Nav_structure extends react.Component {
         <div 
           className="side-nav-container" 
           id={this.state.sideNavState} 
-          onMouseEnter={this.enters} 
-          onMouseLeave={this.exits}>
+          onMouseEnter={this.enterSideNav}
+          onMouseLeave={this.exitSideNav}
+          onClick={this.iconSelect} 
+          >
 
           <div className="plain-div-behind-side-nav"></div>
 
 
           <div className='side-icons' data-iconAnime={this.state.sideIconState} id data-name="bulbIcon">
-            <img src={bulbIcon}/>
+            <img className='img' src={bulbIcon}/>
             <div className={this.state.animeClass}>Notes</div>
           </div>
 
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="reminderIcon">
-            <img src={reminderIcon}/>
+            <img className='img' src={reminderIcon}/>
             <div className={this.state.animeClass}>Reminder</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="brushIcon">
-            <img src={brushIcon}/>
+            <img className='img' src={brushIcon}/>
             <div className={this.state.animeClass}>Edit</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState}data-name="archiveIcon">
-            <img src={archiveIcon}/>
+            <img className='img' src={archiveIcon}/>
             <div className={this.state.animeClass}>Archive</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="deleteIcon">
-            <img src={deleteIcon}/>
+            <img className='img' src={deleteIcon}/>
             <div className={this.state.animeClass}>Trash</div>
           </div>      
         

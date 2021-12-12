@@ -21,12 +21,12 @@
   width: 3rem;
   border-radius: 50%;
   cursor: pointer;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
   z-index: 2;
 }
 .side-nav-container .side-icons:hover {
-  background-color: #ffc57a;
-  width: 5rem;
-  border-radius: 0%;
+  background-color: #f3f3f3;
 }
 
 #side-nav-stretch .plain-div-behind-side-nav {
@@ -64,16 +64,12 @@
 
 [data-iconAnime=icon-back-box] {
   animation-name: toRights;
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
-  animation-delay: 0.6s;
+  animation-delay: 0.45s;
 }
 
 [data-iconAnime=icon-back-round] {
   animation-name: toLefts;
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
-  animation-delay: 0.5s;
+  animation-delay: 0.2s;
 }
 
 @keyframes toRights {
@@ -110,7 +106,7 @@
   z-index: 1;
 }
 .side-icon-label:hover {
-  background-color: #ffc57a;
+  background-color: #f3f3f3;
 }
 
 .labels-show {
@@ -126,7 +122,7 @@
 .labels-hide {
   animation-name: labels-hide;
   animation-duration: 0.3s;
-  animation-delay: 0.2s;
+  animation-delay: 0.1s;
   animation-fill-mode: both;
 }
 
@@ -148,12 +144,9 @@
     width: 12rem;
     opacity: 1;
   }
-  30% {
-    opacity: 0.5;
-  }
   100% {
+    width: 6rem;
     left: 5rem;
-    opacity: 0;
   }
 }
 /*
