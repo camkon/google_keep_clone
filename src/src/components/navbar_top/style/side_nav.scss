@@ -7,7 +7,7 @@ $anitique: rgb(255, 197, 122);
   flex-direction: column;
   align-items: center;
 
-  height: 44.2rem;
+  height: calc(100vh - 4.3rem);
   width: 5rem;
 
   margin-top: 0.3rem;
@@ -15,7 +15,7 @@ $anitique: rgb(255, 197, 122);
   .plain-div-behind-side-nav {
     position: absolute;
     left: 0;
-    height: 45rem;
+    height: calc(100% - 4.3rem);
     width: 5rem;
 
     z-index: -1;
@@ -28,19 +28,61 @@ $anitique: rgb(255, 197, 122);
 
     height: 3rem;
     width: 3rem;
-    // background-color: $anitique;
     border-radius: 50%;
     cursor: pointer;
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
     animation-fill-mode: both;
     z-index: 2;
 
     &:hover {
       background-color: $backHover;
+
+      div {
+        background-color: $backHover;
+      }
     }
+
   } 
 }
 
+//unstretch animation
+[data-iconAnime="icon-back-box"] { 
+  animation-name: toRights; 
+  animation-delay: 0.4s;
+}
+[data-iconAnime="icon-back-round"] { 
+  animation-name: toLefts;
+  animation-delay: 0.2s; 
+}
+
+@keyframes toRights {
+  0% {
+    width: 3rem;
+    border-radius: 50%;
+  }
+  100% {
+    width: 5rem;
+    border-radius: 0%;
+  }
+}
+
+@keyframes toLefts {
+  0% {
+    width: 5rem;
+    border-radius: 0%;
+  }
+  100% {
+    width: 3rem;
+    border-radius: 50%;
+  }
+}
+
+#icon-selected {
+  background-color: $anitique;
+  div {
+    background-color: $anitique;
+  }
+}
 //find out why even the toRight and toLeft is changing as per code, it isn't updating in the style sheet in chrome.
 
 
@@ -50,8 +92,8 @@ $anitique: rgb(255, 197, 122);
   //start styling this shit
   .plain-div-behind-side-nav {
     animation-name: plain-div-to-right;
-    animation-duration: 0.5s;
-    animation-delay: 0.6s;
+    animation-duration: 0.3s;
+    animation-delay: 0.4s;
     animation-fill-mode: both;
   }
   @keyframes plain-div-to-right {
@@ -85,41 +127,6 @@ $anitique: rgb(255, 197, 122);
 }
 
 
-
-//unstretch animation
-[data-iconAnime="icon-back-box"] { 
-  animation-name: toRights; 
-  animation-delay: 0.45s;
-}
-[data-iconAnime="icon-back-round"] { 
-  animation-name: toLefts;
-  animation-delay: 0.2s; 
-}
-
-@keyframes toRights {
-  0% {
-    width: 3rem;
-    border-radius: 50%;
-  }
-  100% {
-    width: 5rem;
-    border-radius: 0%;
-  }
-}
-
-@keyframes toLefts {
-  0% {
-    width: 5rem;
-    border-radius: 0%;
-  }
-  100% {
-    width: 3rem;
-    border-radius: 50%;
-  }
-}
-
-
-//labels for side nav icons
 .side-icon-label {
   display: flex;
   align-items: center;
@@ -142,8 +149,8 @@ $anitique: rgb(255, 197, 122);
   left: 5rem;
   opacity: 0;
   animation-name: labels-show;
-  animation-duration: 0.5s;
-  animation-delay: 0.6s;
+  animation-duration: 0.3s;
+  animation-delay: 0.4s;
   animation-fill-mode: both;
 }
 .labels-hide {
@@ -173,19 +180,3 @@ $anitique: rgb(255, 197, 122);
     left: 5rem;
   } 
 }
-
-
-
-
-
-/*
-sideNavState
-shrink and stretch = sideNav-Main-Container
-
-animeClass
-side-icon-label labels-show labels-hide = the div of icon labels
-
-backHover
-round box = the extra div behind the icon labelsicon-back-boxconState
-sideIcons icon-back-round toRight = 
-*/
