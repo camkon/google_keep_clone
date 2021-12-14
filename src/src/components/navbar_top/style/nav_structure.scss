@@ -56,7 +56,7 @@ $backHover: rgb(243, 243, 243);
     align-items: center;
     height: 4rem; width: 60vw;
 
-    #searchBar {
+    .searchBar {
       display: flex;
       align-items: center;
       height: 3rem;
@@ -121,4 +121,12 @@ $backHover: rgb(243, 243, 243);
     }
 
   }
+}
+
+
+
+//state-changes
+#search-bar-state {
+  background-color: white;
+  box-shadow: 0 16px 16px 0;
 }
