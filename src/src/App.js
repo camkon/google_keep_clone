@@ -4,12 +4,11 @@ import reactDom from 'react-dom';
 import Nav_structure from './components/navbar_top/nav_structure';
 
 
-function App() {
-  return(
-    <div>
-      <Nav_structure />
-    </div>
-  )
+class App extends react.Component {
+  
+  render() {
+    return <Nav_structure />
+  }
 }
 
 export default App;
