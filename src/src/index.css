@@ -4,11 +4,11 @@ body {
 }
 
 @font-face {
-  font-family: roboto;
-  src: url("./components/fonts/RobotoCondensed_400Regular.ttf");
+  font-family: poppinsThin;
+  src: url('./components/fonts/Poppins-Regular.ttf');
 }
 
 * {
   box-sizing: border-box;
-  font-family: roboto;
+  font-family: poppinsThin;
 }
