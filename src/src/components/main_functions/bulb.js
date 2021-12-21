@@ -6,7 +6,7 @@ export class Bulb extends Component {
 
     return (
       <div>
-        Bulb componnets
+        Bulb componnets!
       </div>
     )
   }
