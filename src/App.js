@@ -36,7 +36,7 @@ class App extends react.Component {
       sideNavState: 'side-nav-shrink',
       animeClass: 'side-icon-label labels-hide nodisp',
       sideIconState: 'icon-back',
-      searchBar: 'search-bar-clicked',
+      searchBar: 'search-bar-not-clicked',
       selectedMenuOption: 'notesIcon',
     }
   }
