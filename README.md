@@ -1,4 +1,2 @@
 # google_keep_clone
-a frontend clone of google keep using react
-
-### Building this while learning react
+### Building a clone of google keep while learning react. Take a peek at what I have build so far. <a href="https://googlekeepfrontendclone">click here</a>
