@@ -3,10 +3,11 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 5rem;
-  top: 4rem;
-  height: calc(100% - 4rem);
-  padding-top: -4rem;
-  width: calc(100% - 5rem);
+  left: 4.5rem;
+  top: 4.5rem;
+  height: calc(100% - 4.5rem);
+  padding-top: 4rem;
+  width: calc(100% - 4.5rem);
+  color: #646464;
   z-index: 3;
 }

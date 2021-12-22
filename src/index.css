@@ -5,10 +5,15 @@ body {
 
 @font-face {
   font-family: poppinsThin;
-  src: url('./components/fonts/Poppins-Regular.ttf');
+  src: url('./components/Fonts/Poppins-Regular.ttf');
 }
 
 * {
   box-sizing: border-box;
   font-family: poppinsThin;
+}
+
+img {
+  -webkit-filter:invert(40%) ;
+  filter:invert(40%) ;
 }

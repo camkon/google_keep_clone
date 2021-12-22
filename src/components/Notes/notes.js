@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-export class Bulb extends Component {
+export class Notes extends Component {
 
   render() {
 
     return (
       <div>
-        Bulb componnets!
+        Notes componnets!
       </div>
     )
   }
 }
 
-export default Bulb
+export default Notes

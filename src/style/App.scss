@@ -7,12 +7,12 @@
 //variables
 $backHover: rgb(243, 243, 243);
 
-
-
 //top nav
 .top_nav {
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
 
   height: 4rem;
   width: 100vw;
@@ -33,7 +33,7 @@ $backHover: rgb(243, 243, 243);
     [data-name='menu-icon'] {
       @include flexBox();
       height: 3rem; width: 3rem;
-      margin-left: 0.5rem;
+      margin-left: 0.3rem;
       border-radius: 50%;
       &:hover {
         background-color: $backHover;
@@ -46,11 +46,18 @@ $backHover: rgb(243, 243, 243);
       justify-content: center;
       height: 2.2rem;
       width: 4rem;
+      margin-left: -0.5rem;
       object-fit: contain;
+      
+      img {
+        -webkit-filter: invert(0%);
+        filter: invert(0%);
+      }
     }
 
     [data-name='keep-text'] {
-      font-size: 1.3rem;
+      margin-left: -0.3rem;
+      font-size: 1.25rem;
       color: rgb(108, 108, 108);
     }
   }
@@ -87,7 +94,7 @@ $backHover: rgb(243, 243, 243);
         background-color: transparent;
         border: none;
         outline-style: none;
-        font-size: 1.05rem;
+        font-size: 0.95rem;
       }
     }
   }
@@ -110,17 +117,17 @@ $backHover: rgb(243, 243, 243);
     }
 
     [data-name='refresh-icon'],[data-name='grid-icon'] {
-      margin: 0 0.5rem;
+      margin: 0 0rem;
     }
 
     [data-name='settings-icon'] {
-      margin: 0 2rem 0 0.5rem;
+      margin: 0 1.75rem 0 0rem;
     }
 
     [data-name='googleApps-icon'],[data-name='Account-icon'] {
       height: 2.5rem;
       width: 2.5rem;
-      margin: 0 0.5rem;
+      margin: 0 0.25rem;
     }
 
   }
@@ -136,5 +143,5 @@ $backHover: rgb(243, 243, 243);
 
 #search-bar-clicked {
   background-color: white;
-  box-shadow: 0 1px 2px 0 grey;
+  box-shadow: 0 0.5px 2px 0 grey;
 }

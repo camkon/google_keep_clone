@@ -1,45 +1,43 @@
 import react from 'react';
 import reactDom from 'react-dom';
+import Display_body from './components/Display_body';
 
 //top-nav-bar style
-import './style/nav_structure.css'
+import './style/css/App.css'
 
 //side-nav-bar style
-import './style/side_nav.css';
-
-import Display_body from './display_body';
-
+import './style/css/side_nav.css';
 
 
 //top-nav-bar images
-import menuIcon from './../../images/iconsBlack/menu.svg';
-import googleKeep from './../../images/iconsBlack/google-keep.svg';
-import searchIcon from './../../images/iconsBlack/search.svg';
-import refreshIcon from './../../images/iconsBlack/refresh.svg';
-import gridIcon from './../../images/iconsBlack/grid.svg';
-import settingsIcon from './../../images/iconsBlack/settings.svg';
-import googleAppsIcon from './../../images/iconsBlack/apps.svg';
-import AccountIcon from './../../images/iconsBlack/account.svg';
+import menuIcon from './images/iconsBlack/menu.svg';
+import googleKeep from './images/iconsBlack/google-keep.svg';
+import searchIcon from './images/iconsBlack/search.svg';
+import refreshIcon from './images/iconsBlack/refresh.svg';
+import gridIcon from './images/iconsBlack/grid.svg';
+import settingsIcon from './images/iconsBlack/settings.svg';
+import googleAppsIcon from './images/iconsBlack/apps.svg';
+import AccountIcon from './images/iconsBlack/account.svg';
 
 //side-nav-bar images
-import bulbIcon from './../../images/iconsBlack/bulb.svg'
-import reminderIcon from './../../images/iconsBlack/reminder.svg'
-import brushIcon from './../../images/iconsBlack/brush.svg'
-import archiveIcon from './../../images/iconsBlack/archive.svg'
-import deleteIcon from './../../images/iconsBlack/delete.svg'
+import notesIcon from './images/iconsBlack/notes.svg'
+import reminderIcon from './images/iconsBlack/reminder.svg'
+import brushIcon from './images/iconsBlack/brush.svg'
+import archiveIcon from './images/iconsBlack/archive.svg'
+import deleteIcon from './images/iconsBlack/delete.svg'
 
 
 
-class Nav_structure extends react.Component {
+class App extends react.Component {
 
-  constructor(props) {
+  constructor() {
     super()
     this.state = {
       sideNavState: 'side-nav-shrink',
       animeClass: 'side-icon-label labels-hide nodisp',
       sideIconState: 'icon-back',
       searchBar: 'search-bar-clicked',
-      selectedMenuOption: 'bulbIcon',
+      selectedMenuOption: 'notesIcon',
     }
   }
 
@@ -58,10 +56,6 @@ class Nav_structure extends react.Component {
       searchBar: a,
     })    
   }
-
-
-
-
 
 
   //SIDE NAV FUNCTIONS
@@ -149,7 +143,7 @@ class Nav_structure extends react.Component {
 
   render() {
     return(
-      <div>
+      <div id='a'>
         <div className="top_nav">
 
           <div className="top_nav_grids" id="leftNav">
@@ -159,9 +153,6 @@ class Nav_structure extends react.Component {
             <div data-name="keep-text"><p>Keep</p></div>
           </div>
           
-
-        {/* //function to change the stye of search bar on clicking it */}
-
           <div className="top_nav_grids" id="middleNav">
             <div className="searchBar" id={this.state.searchBar} onClick={this.changeSearchBarState}>
               <div data-name="search-icon"><img src={searchIcon}/></div>
@@ -185,14 +176,19 @@ class Nav_structure extends react.Component {
           id={this.state.sideNavState} 
           onMouseEnter={this.enterSideNav}
           onMouseLeave={this.exitSideNav}
-          onClick={this.iconSelectCheck} 
-          >
+          onClick={this.iconSelectCheck}>
 
           <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
+          {/* {
+            this.state.sideNavState == 'side-nav-stretch' && 
+            <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
+          } */}
 
-
-          <div className='side-icons' data-iconAnime={this.state.sideIconState} id='icon-selected' data-name="bulbIcon">
-            <img className='img' src={bulbIcon}/>
+          <div className='side-icons' data-iconAnime={this.state.sideIconState} id='icon-selected' data-name="notesIcon">
+            <img className='img' src={notesIcon}/>
+            {/* {
+              this.state.animeClass == 'side-icon-label labels-show' && <div className={this.state.animeClass}>Notes</div>
+            } */}
             <div className={this.state.animeClass}>Notes</div>
           </div>
 
@@ -225,4 +221,5 @@ class Nav_structure extends react.Component {
   }
 }
 
-export default Nav_structure;
+export default App;
+

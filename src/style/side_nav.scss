@@ -1,23 +1,24 @@
 $backHover: rgb(243, 243, 243);
 $anitique: rgb(255, 197, 122);
 
-
 .side-nav-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  height: calc(100vh - 4.3rem);
-  width: 5rem;
+  position: fixed;
+  top: 4.5rem;
 
-  margin-top: 0.3rem;
+  height: 100%;
+  width: 4.5rem;
+  // margin-top: 0.5rem;
   z-index: 5;
 
   .plain-div-behind-side-nav {
     position: absolute;
     left: 0;
-    height: calc(100% - 4.3rem);
-    width: 5rem;
+    height: calc(100% - 4.5rem);
+    width: 4.5rem;
     background-color: white;
     z-index: 4;
   }
@@ -33,6 +34,7 @@ $anitique: rgb(255, 197, 122);
     cursor: pointer;
     animation-duration: 0.2s;
     animation-fill-mode: both;
+
     z-index: 5;
 
     &:hover {
@@ -62,14 +64,14 @@ $anitique: rgb(255, 197, 122);
     border-radius: 50%;
   }
   100% {
-    width: 5rem;
+    width: 4.5rem;
     border-radius: 0%;
   }
 }
 
 @keyframes toLefts {
   0% {
-    width: 5rem;
+    width: 4.5rem;
     border-radius: 0%;
   }
   100% {
@@ -81,6 +83,11 @@ $anitique: rgb(255, 197, 122);
 #icon-selected {
   background-color: $anitique;
   
+  img {
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+  }
+
   div {
     background-color: $anitique;
   }
@@ -100,7 +107,7 @@ $anitique: rgb(255, 197, 122);
   }
   @keyframes plain-div-to-right {
     100% {
-      width: 17rem;
+      width: 18.5rem;
       box-shadow: 0 16px 16px 0 rgba(210,210,210,0.5);
     }
   }
@@ -115,12 +122,12 @@ $anitique: rgb(255, 197, 122);
   }
   @keyframes plain-div-to-left {
     0% {
-      width: 17rem;
+      width: 18.5rem;
       box-shadow: 0 16px 16px 0;
       opacity: 0.5;
     }
     100% {
-      width: 5rem;
+      width: 4.5rem;
       box-shadow: 0 16px 16px 0;
       opacity: 0;
     }
@@ -132,12 +139,12 @@ $anitique: rgb(255, 197, 122);
   display: flex;
   align-items: center;
   position: absolute;
-  left: 5rem;
+  left: 4.5rem;
   height: 3rem;
-  width: 6rem;
+  width: 8rem;
   padding-left: 1rem;
   border-radius: 0 5rem 5rem 0;
-  font-size: 1rem;
+  font-size: 0.85rem;
   opacity: 0;
   z-index: 5;
 
@@ -147,7 +154,7 @@ $anitique: rgb(255, 197, 122);
 }
 .labels-show {
   display: flex;
-  left: 5rem;
+  left: 4.5rem;
   opacity: 0;
   animation-name: labels-show;
   animation-duration: 0.3s;
@@ -165,19 +172,19 @@ $anitique: rgb(255, 197, 122);
 }
 
 @keyframes labels-show {
-  0% {width: 6rem;}
+  0% {width: 8rem;}
   100% {
-    width: 12rem;
+    width: 14rem;
     opacity: 1;
   }
 }
 @keyframes labels-hide {
   0% {
-    width: 12rem;
+    width: 14rem;
     opacity: 1;
   }
   100% {
-    width: 6rem;
-    left: 5rem;
+    width: 8rem;
+    left: 4.5rem;
   } 
 }
