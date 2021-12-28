@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 import '../style/css/display_body.css'
 
@@ -10,20 +9,20 @@ import Edit from './Edit';
 import Archive from './Archive';
 import Delete from './Delete';
 
-export class Display_body extends Component {
+export class DisplayBody extends Component {
 
   render() {
 
     return (
       <div data-container="main-screen-container">
-        { this.props.menu == 'notesIcon' && <Notes/> }
-        { this.props.menu == 'reminderIcon' && <Reminder/> }
-        { this.props.menu == 'brushIcon' && <Edit/> }
-        { this.props.menu == 'archiveIcon' && <Archive/> }
-        { this.props.menu == 'deleteIcon' && <Delete/> }
+        { this.props.menu === 'notesIcon' && <Notes/> }
+        { this.props.menu === 'reminderIcon' && <Reminder/> }
+        { this.props.menu === 'brushIcon' && <Edit/> }
+        { this.props.menu === 'archiveIcon' && <Archive/> }
+        { this.props.menu === 'deleteIcon' && <Delete/> }
       </div>
     )
   }
 }
 
-export default Display_body
+export default DisplayBody

@@ -1,6 +1,5 @@
 import react from 'react';
-import reactDom from 'react-dom';
-import Display_body from './components/Display_body';
+import DisplayBody from './components/Display_body';
 
 //top-nav-bar style
 import './style/css/App.css'
@@ -46,12 +45,12 @@ class App extends react.Component {
   //hamburger menu function
   //when clicked on menubutton on top-nav-bar, it checks for style class's state and change accordingly 
   stateCheck = (e) => {
-    const x = this.state.sideNavState == 'side-nav-shrink' ? this.enterSideNav() : this.exitSideNav();
+    this.state.sideNavState === 'side-nav-shrink' ? this.enterSideNav() : this.exitSideNav();
   }
 
   //searchbar style change on click function
   changeSearchBarState = () => {
-    let a = this.state.searchBar == 'search-bar-not-clicked' ? 'search-bar-clicked' : 'search-bar-not-clicked';
+    let a = this.state.searchBar === 'search-bar-not-clicked' ? 'search-bar-clicked' : 'search-bar-not-clicked';
     this.setState({
       searchBar: a,
     })    
@@ -85,6 +84,7 @@ class App extends react.Component {
       animeClass: 'side-icon-label labels-hide',
       sideIconState: 'icon-back-round',
     })
+    //changes the display of side-nav-labels to NONE with a time gap after exiting
     setTimeout(() => this.labelNoDisplay(), 300);
   }
 
@@ -95,7 +95,7 @@ class App extends react.Component {
   iconSelectCheck = (e) => {
     let d = e.target.getAttribute('class')
 
-    if(d == 'side-icons') {
+    if(d === 'side-icons') {
       if(e.target.getAttribute('id') != null) console.log('this is already selected');
       else {
         let w = e.target.getAttribute('data-name');
@@ -104,7 +104,7 @@ class App extends react.Component {
         this.checkForOtherIconSelection(selectIcon)
       }
     }
-    else if(d == 'img') {
+    else if(d === 'img') {
       if(e.target.parentNode.getAttribute('id') != null) console.log('this is already selected');
       else {
         let w = e.target.parentNode.getAttribute('data-name');
@@ -131,7 +131,7 @@ class App extends react.Component {
     for(const i of a) {
       let b = i.getAttribute('data-name')
       let c = document.querySelector(`[data-name=${b}]`)
-      if(c.getAttribute('id') == 'icon-selected') {
+      if(c.getAttribute('id') === 'icon-selected') {
         c.removeAttribute('id');
         x();  
         break;
@@ -140,7 +140,6 @@ class App extends react.Component {
   }
 
 //set the selecting fucntion as a parameter that passes in a fucntion
-
   render() {
     return(
       <div id='a'>
@@ -148,24 +147,29 @@ class App extends react.Component {
 
           <div className="top_nav_grids" id="leftNav">
             <div data-name="menu-icon" onClick={this.stateCheck}>
-            <img src={menuIcon}/></div>
-            <div data-name="google-keep"><img src={googleKeep}/></div>
+              <img src={menuIcon} alt="menu icon"/>
+            </div>
+            <div data-name="google-keep">
+              <img src={googleKeep} alt="google keep icon"/>
+            </div>
             <div data-name="keep-text"><p>Keep</p></div>
           </div>
           
           <div className="top_nav_grids" id="middleNav">
             <div className="searchBar" id={this.state.searchBar} onClick={this.changeSearchBarState}>
-              <div data-name="search-icon"><img src={searchIcon}/></div>
+              <div data-name="search-icon">
+                <img src={searchIcon} alt="search icon"/>
+              </div>
               <input data-name="search-text" type="text" placeHolder="Search"/>
             </div>
           </div>
           
           <div className="top_nav_grids" id="rightNav">
-            <div data-name="refresh-icon"><img src={refreshIcon}/></div>
-            <div data-name="grid-icon"><img src={gridIcon}/></div>
-            <div data-name="settings-icon"><img src={settingsIcon}/></div>
-            <div data-name="googleApps-icon"><img src={googleAppsIcon}/></div>
-            <div data-name="Account-icon"><img src={AccountIcon}/></div>
+            <div data-name="refresh-icon"><img src={refreshIcon} alt="refresh icon"/></div>
+            <div data-name="grid-icon"><img src={gridIcon} alt="grid view icon"/></div>
+            <div data-name="settings-icon"><img src={settingsIcon} alt="settings icon"/></div>
+            <div data-name="googleApps-icon"><img src={googleAppsIcon} alt="google apps icon"/></div>
+            <div data-name="Account-icon"><img src={AccountIcon} alt="account icon"/></div>
           </div>
         </div>
 
@@ -180,41 +184,41 @@ class App extends react.Component {
 
           <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
           {/* {
-            this.state.sideNavState == 'side-nav-stretch' && 
+            this.state.sideNavState === 'side-nav-stretch' && 
             <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
           } */}
 
           <div className='side-icons' data-iconAnime={this.state.sideIconState} id='icon-selected' data-name="notesIcon">
-            <img className='img' src={notesIcon}/>
+            <img className='img' src={notesIcon} alt="notes icon"/>
             {/* {
-              this.state.animeClass == 'side-icon-label labels-show' && <div className={this.state.animeClass}>Notes</div>
+              this.state.animeClass === 'side-icon-label labels-show' && <div className={this.state.animeClass}>Notes</div>
             } */}
             <div className={this.state.animeClass}>Notes</div>
           </div>
 
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="reminderIcon">
-            <img className='img' data-name="reminderIcon" src={reminderIcon}/>
+            <img className='img' data-name="reminderIcon" src={reminderIcon} alt="reminder icon"/>
             <div className={this.state.animeClass}>Reminder</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="brushIcon">
-            <img className='img' src={brushIcon}/>
+            <img className='img' src={brushIcon} alt="edit icon"/>
             <div className={this.state.animeClass}>Edit</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState}data-name="archiveIcon">
-            <img className='img' src={archiveIcon}/>
+            <img className='img' src={archiveIcon} alt="archive icon"/>
             <div className={this.state.animeClass}>Archive</div>
           </div>
           
           <div className='side-icons' data-iconAnime={this.state.sideIconState} data-name="deleteIcon">
-            <img className='img' src={deleteIcon}/>
+            <img className='img' src={deleteIcon} alt="delete icon"/>
             <div className={this.state.animeClass}>Trash</div>
           </div>      
         
         </div>
 
-        <Display_body menu={this.state.selectedMenuOption}/>
+        <DisplayBody menu={this.state.selectedMenuOption}/>
       
       </div>
     )
