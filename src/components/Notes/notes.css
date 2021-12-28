@@ -1,0 +1,56 @@
+@font-face {
+  font-family: roboto;
+  src: url("../Fonts/RobotoCondensed_400Regular.ttf");
+}
+.note-take-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.5px solid grey;
+  font-family: roboto;
+}
+.note-take-container .note {
+  display: flex;
+  align-items: center;
+  width: 37rem;
+  padding: 0.75rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: 0.8px double #f0f0f0;
+  box-shadow: 0 0.7px 5px 0px grey;
+}
+.note-take-container .note:hover {
+  cursor: text;
+}
+.note-take-container .note .note-title {
+  position: absolute;
+  top: 2.3rem;
+  min-height: 1.5rem;
+  resize: none;
+  width: 30rem;
+  outline-style: none;
+  border: none;
+  font-weight: 600;
+}
+.note-take-container .note .note-title::placeholder {
+  font-size: 0.9rem;
+  font-family: roboto;
+  letter-spacing: 2px;
+}
+.note-take-container .note .note-take {
+  height: auto;
+  width: 35rem;
+  word-wrap: break-word;
+  overflow-y: scroll;
+  outline-style: none;
+  border: none;
+}
+.note-take-container .note .note-take::placeholder {
+  font-size: 1rem;
+  font-family: roboto;
+  letter-spacing: 0.3px;
+}
