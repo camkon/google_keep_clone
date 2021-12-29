@@ -9,4 +9,5 @@
   width: calc(100% - 4.5rem);
   color: #646464;
   z-index: 3;
+  box-sizing: border-box;
 }

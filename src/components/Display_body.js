@@ -14,7 +14,7 @@ export class DisplayBody extends Component {
   render() {
 
     return (
-      <div data-container="main-screen-container">
+      <div data-container="main-screen-container" id="main-screen">
         { this.props.menu === 'notesIcon' && <Notes/> }
         { this.props.menu === 'reminderIcon' && <Reminder/> }
         { this.props.menu === 'brushIcon' && <Edit/> }
