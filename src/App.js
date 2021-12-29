@@ -183,16 +183,9 @@ class App extends react.Component {
           onClick={this.iconSelectCheck}>
 
           <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
-          {/* {
-            this.state.sideNavState === 'side-nav-stretch' && 
-            <div className="plain-div-behind-side-nav" data-test={this.state.selectedMenuOption}></div>
-          } */}
 
           <div className='side-icons' data-iconAnime={this.state.sideIconState} id='icon-selected' data-name="notesIcon">
             <img className='img' src={notesIcon} alt="notes icon"/>
-            {/* {
-              this.state.animeClass === 'side-icon-label labels-show' && <div className={this.state.animeClass}>Notes</div>
-            } */}
             <div className={this.state.animeClass}>Notes</div>
           </div>
 
@@ -216,7 +209,7 @@ class App extends react.Component {
             <div className={this.state.animeClass}>Trash</div>
           </div>      
         
-        </div>
+        </div> 
 
         <DisplayBody menu={this.state.selectedMenuOption}/>
       
