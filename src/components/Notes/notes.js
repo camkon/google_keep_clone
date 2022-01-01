@@ -25,18 +25,7 @@ const Notes = () => {
     setNoteText(e.target.value)
   }
 
-  // 3  
-  // useEffect(() => {
-  //   window.addEventListener('click', (e) => {
-  //     let x = e.target.getAttribute('id')
-  //     if((x != 'note') && (x != 'note-title' && x != 'note-text')) {
-  //       setNoteState('2.9rem');
-  //       makeAPage();
-  //     }
-  //   })
-  // })
-
-
+  //3
   useEffect(() => {
     document.querySelector(`[data-container="main-screen-container"]`).addEventListener('click', (e) => {
       let x = e.target.getAttribute('id')
@@ -46,7 +35,7 @@ const Notes = () => {
     })
   },[])
 
-
+  //4
   const makeAPage = () => {
     let a = new Array();
     a.push([note_title,note_text]);
@@ -86,46 +75,20 @@ const Notes = () => {
         </Note>
       </NoteTakeContainer>
 
-      <NoteShowContainer id="note-show" contHeight={note_state} className="note-show-container">
+      {/* <NoteShowContainer id="note-show" contHeight={note_state} className="note-show-container">
       {
         page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
       }
-      {/* {
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }{
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      } */}
-      </NoteShowContainer>
+      </NoteShowContainer> */}
+
+      <Pages
+        id="note-show"
+        className="note-show-container"
+        contHeight={note_state}
+        title={page_set[0]}
+        text={page_set[1]}
+      />
+
     </NotesCont>
   )
 }
@@ -174,9 +137,9 @@ const NoteTake = styled.input`
 `
 const NoteAdd = styled.button``
 
-const NoteShowContainer = styled.div`
+{/* const NoteShowContainer = styled.div`
   position: absolute;
   top: ${props => props.contHeight === '2.9rem' ? '5.9rem' : '11.5rem'};
   height: ${props => props.contHeight == '2.9rem' ? 'calc(100% - 5.9rem)' : 'calc(100% - 11.5rem)'}
-`
+` */}
 
