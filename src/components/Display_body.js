@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useEffect} from 'react';
 
 import '../style/css/display_body.css'
 
@@ -9,20 +9,18 @@ import Edit from './Edit';
 import Archive from './Archive';
 import Delete from './Delete';
 
-export class DisplayBody extends Component {
+const DisplayBody = ({menu}) => {
 
-  render() {
-
-    return (
-      <div data-container="main-screen-container" id="main-screen">
-        { this.props.menu === 'notesIcon' && <Notes/> }
-        { this.props.menu === 'reminderIcon' && <Reminder/> }
-        { this.props.menu === 'brushIcon' && <Edit/> }
-        { this.props.menu === 'archiveIcon' && <Archive/> }
-        { this.props.menu === 'deleteIcon' && <Delete/> }
-      </div>
-    )
-  }
+  return (
+    <div data-container="main-screen-container" id="main-screen">
+      { menu === 'notesIcon' && <Notes/> }
+      { menu === 'reminderIcon' && <Reminder/> }
+      { menu === 'brushIcon' && <Edit/> }
+      { menu === 'archiveIcon' && <Archive/> }
+      { menu === 'deleteIcon' && <Delete/> }
+    </div>
+  )
 }
+
 
 export default DisplayBody
