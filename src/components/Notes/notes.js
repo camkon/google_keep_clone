@@ -9,7 +9,7 @@ const Notes = () => {
   const [note_title, setNoteTitle] = useState('');
   const [note_text, setNoteText] = useState('');
   const [page_set, setPageSet] = useState([]);
-
+  const [temp, setTemp] = useState([])
 
 
   //functions
@@ -25,23 +25,44 @@ const Notes = () => {
     setNoteText(e.target.value)
   }
 
-  //3
-  useEffect(() => {
-    document.querySelector(`[data-container="main-screen-container"]`).addEventListener('click', (e) => {
-      let x = e.target.getAttribute('id')
-      if(x === 'main-screen' || x === 'note-taker' || x === 'note-show') {
-        setNoteState('2.9rem');
-      }
-    })
-  },[])
 
-  //4
   const makeAPage = () => {
-    let a = new Array();
+    var a = new Array();
     a.push([note_title,note_text]);
-    setPageSet(a[0]);
+    console.log('5')
+    if(a[0][0] === '' && a[0][1] === '') {
+      console.log('5.1')
+    }
+    else {
+      console.log('5.2')
+      setPageSet(a[0]);
+      setNoteTitle('');
+      setNoteText('');
+      setNoteState('2.9rem');
+    }
   }
 
+  useEffect(() => {
+    console.log('2') //init
+    setTemp(page_set)
+  },[page_set])
+
+  //3
+  function noteHRed(e){
+    console.log('4')
+    let x = e.target.getAttribute('id')
+    if(x === 'main-screen' || x === 'note-taker' || x === 'note-show') {
+      setNoteState('2.9rem');
+      makeAPage()
+    }
+  }
+
+  //4
+  useEffect(() => {
+    console.log('3') //1
+    document.querySelector(`[data-container="main-screen-container"]`).addEventListener('click', noteHRed)
+    return () => { document.querySelector(`[data-container="main-screen-container"]`).removeEventListener('click',noteHRed) }
+  },[note_state])
 
   return (
     <NotesCont className='notes-cont'>
@@ -75,19 +96,9 @@ const Notes = () => {
         </Note>
       </NoteTakeContainer>
 
-      {/* <NoteShowContainer id="note-show" contHeight={note_state} className="note-show-container">
-      {
-        page_set != null && <Pages title={page_set[0]} text={page_set[1]}/>
-      }
-      </NoteShowContainer> */}
-
-      <Pages
-        id="note-show"
-        className="note-show-container"
-        contHeight={note_state}
-        title={page_set[0]}
-        text={page_set[1]}
-      />
+      <NoteShowContainer id="note-show" contHeight={note_state} className="note-show-container">
+        {true && <Pages frag={temp}/> }
+      </NoteShowContainer>
 
     </NotesCont>
   )
@@ -98,48 +109,22 @@ export default Notes
 
 //styled components
 
-const NotesCont = styled.div`
-`
+const NotesCont = styled.div``
 
-const NoteTakeContainer = styled.div`
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // border-bottom: 0.5px solid grey;
-`
+const NoteTakeContainer = styled.div``
+
 const Note = styled.div`
-  // display:flex;
-  // align-items: center;
   height: ${props => props.noteHeight};
-  // width: 37rem;
-  // padding: 0.5rem;
-  // margin: 1.5rem 0;
-  // border-radius: 0.5rem;
-  // border: 0.8px double rgb(240,240,240);
-  // box-shadow: 0 0.7px 3px 0px grey;
-  // &:hover {cursor:text}
 `
 const NoteTitle = styled.input``
 
-const NoteTake = styled.input`
-  // // position: absolute;
-  // // top: 0;
-  // height: 2rem;
-  // width: 20rem;
-  // outline-style: none;
-  // border: none;
-  // border-radius: 0.5rem;
-  // background-color: ;
-`
+const NoteTake = styled.input``
+
 const NoteAdd = styled.button``
 
-{/* const NoteShowContainer = styled.div`
+const NoteShowContainer = styled.div`
   position: absolute;
   top: ${props => props.contHeight === '2.9rem' ? '5.9rem' : '11.5rem'};
   height: ${props => props.contHeight == '2.9rem' ? 'calc(100% - 5.9rem)' : 'calc(100% - 11.5rem)'}
-` */}
+`
 
