@@ -93,6 +93,7 @@ const Notes = () => {
       </NoteTakeContainer>
 
       <NoteShowContainer id="note-show" contHeight={note_state} className="note-show-container">
+        {/* render Pages if page_set isn't empty, otherwise render note-flag */}
         {pageFlag && <Pages frag={page_set}/> }
         {noteFlag && 
           <div id="note-flag">

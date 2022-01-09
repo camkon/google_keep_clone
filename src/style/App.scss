@@ -24,6 +24,7 @@ $backHover: rgb(243, 243, 243);
   z-index: 5;
 
   #leftNav {
+    position: relative;
     display: flex;
     align-items: center;
 
@@ -41,24 +42,32 @@ $backHover: rgb(243, 243, 243);
       }
     }
   
-    [data-name="google-keep"] {
+    #current-text-cont {
       display: flex;
       justify-content: center;
-      height: 2.2rem;
-      width: 4rem;
-      margin-left: -0.5rem;
-      object-fit: contain;
-      
-      img {
-        -webkit-filter: invert(0%);
-        filter: invert(0%);
-      }
-    }
+      align-items: center;
+      height: 4rem;
+      margin: 0 0.5rem;
+      padding: 0;
 
-    [data-name='keep-text'] {
-      margin-left: -0.3rem;
-      font-size: 1.25rem;
-      color: rgb(108, 108, 108);
+      [data-name="google-keep"] {
+        display: flex;
+        justify-content: center;
+        height: 2.2rem;
+        width: 2.2rem;
+        margin-right: 0.65rem;
+        object-fit: contain;
+        
+        img {
+          -webkit-filter: invert(0%);
+          filter: invert(0%);
+        }
+      }
+  
+      [data-name='current-text'] {
+        font-size: 1.25rem;
+        color: rgb(108, 108, 108);
+      }
     }
   }
 

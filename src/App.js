@@ -150,6 +150,22 @@ class App extends react.Component {
     }
   }
 
+
+  currectPage = () => {
+    let x = this.state.selectedMenuOption;
+    let c;
+    switch (x) {
+      case 'notesIcon': c = 'Keep';break;
+      case 'reminderIcon': c = 'Reminder';break;
+      case 'brushIcon': c = 'Edit';break;
+      case 'archiveIcon': c = 'Archive';break;
+      case 'deleteIcon': c = 'Bin';break;
+      default: c = 'Keep'
+        break;
+    }
+    return c
+  }
+
 //set the selecting fucntion as a parameter that passes in a fucntion
   render() {
     return(
@@ -160,10 +176,15 @@ class App extends react.Component {
             <div data-name="menu-icon" onClick={this.stateCheck}>
               <img src={menuIcon} alt="menu icon"/>
             </div>
-            <div data-name="google-keep">
+            <div id="current-text-cont">
+            {
+              this.state.selectedMenuOption === 'notesIcon' &&
+              <div data-name="google-keep">
               <img src={googleKeep} alt="google keep icon"/>
+              </div>
+            }
+            <div data-name="current-text"><p>{this.currectPage()}</p></div>
             </div>
-            <div data-name="keep-text"><p>Keep</p></div>
           </div>
           
           <div className="top_nav_grids" id="middleNav">
