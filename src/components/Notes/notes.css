@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  font-family: roboto;
+  letter-spacing: 2px;
 }
 .note-take-container .note {
   position: relative;
@@ -36,18 +36,12 @@
   position: absolute;
   top: 0.8rem;
   min-height: 1.5rem;
-  resize: none;
   width: 30rem;
   outline-style: none;
   border: none;
   font-size: 0.9rem;
-  font-family: roboto;
-  letter-spacing: 2px;
+  font-family: monospace;
   font-weight: 600;
-}
-.note-take-container .note .note-title::placeholder {
-  font-size: 0.9rem;
-  font-family: roboto;
   letter-spacing: 2px;
 }
 .note-take-container .note .note-take {
@@ -57,36 +51,41 @@
   overflow-y: scroll;
   outline-style: none;
   border: none;
-  font-size: 1rem;
-  font-family: roboto;
-  letter-spacing: 0.3px;
-}
-.note-take-container .note .note-take::placeholder {
-  font-size: 1rem;
-  font-family: roboto;
-  letter-spacing: 0.3px;
-}
-.note-take-container .note .note-add {
-  position: absolute;
-  right: 0.8rem;
-  bottom: 0.5rem;
-  padding: 0.5rem 0.8rem;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: #f3f3f3;
-}
-.note-take-container .note .note-add:hover {
-  background-color: #ffc57a;
-  cursor: pointer;
+  font-size: 1.1rem;
+  font-family: monospace;
+  letter-spacing: 0.25px;
 }
 
 .note-show-container {
   position: absolute;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   padding: 2rem;
   box-sizing: border-box;
   overflow-y: scroll;
+}
+
+#note-flag {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 7.8rem;
+  padding-left: 1.4rem;
+}
+#note-flag #noteBg {
+  height: 7.5rem;
+  width: 7.5rem;
+  -webkit-filter: invert(91%);
+  filter: invert(91%);
+}
+#note-flag p {
+  font-size: 1.25rem;
+  color: grey;
 }
