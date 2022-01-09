@@ -49,11 +49,22 @@ class App extends react.Component {
   }
 
   //searchbar style change on click function
+  windowSearchCheck = (e) => {
+    let x = e.target.getAttribute('data-s');
+    if(x != 'temp') {
+      this.setState({
+        searchBar: 'search-bar-not-clicked'
+      })
+      window.removeEventListener('click',this.windowSearchCheck)
+    }
+  }
+
   changeSearchBarState = () => {
-    let a = this.state.searchBar === 'search-bar-not-clicked' ? 'search-bar-clicked' : 'search-bar-not-clicked';
+    // let a = this.state.searchBar === 'search-bar-not-clicked' ? 'search-bar-clicked' : 'search-bar-not-clicked';
     this.setState({
-      searchBar: a,
-    })    
+      searchBar: 'search-bar-clicked',
+    })
+    window.addEventListener('click',this.windowSearchCheck)    
   }
 
 
@@ -156,11 +167,11 @@ class App extends react.Component {
           </div>
           
           <div className="top_nav_grids" id="middleNav">
-            <div className="searchBar" id={this.state.searchBar} onClick={this.changeSearchBarState}>
-              <div data-name="search-icon">
-                <img src={searchIcon} alt="search icon"/>
+            <div className="searchBar" data-s="temp" id={this.state.searchBar} onClick={this.changeSearchBarState}>
+              <div data-name="search-icon" data-s="temp">
+                <img src={searchIcon} alt="search icon" data-s="temp"/>
               </div>
-              <input data-name="search-text" type="text" placeHolder="Search"/>
+              <input data-name="search-text" type="text" data-s="temp" placeHolder="Search"/>
             </div>
           </div>
           
